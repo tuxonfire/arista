@@ -23,7 +23,7 @@
  #   shell: show version
 
   - name: use eos_command module
-    arista.eos.eos_command:
+    eos_command:
       commands: show version 
     register: command_output
     
