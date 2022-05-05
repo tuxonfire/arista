@@ -1,0 +1,35 @@
+--- #tells it's an yml playbook
+- name: gather EOS facts
+  hosts: all
+  gather_facts: true
+  vars:
+    ansible_network_os: arista.eos.eos
+    #ansible_connection: network_cli
+    ansible_connection: httpapi
+    ansible_network_cli_ssh_type: libssh
+
+  tasks:
+  #- name: expect passcode
+    #expect:
+    #  commands:
+      #command: 
+      #responses: \[PASSCODE\]
+      #responses:
+       # Question:
+        #  - "{{ passcode }}"
+   # register: command_output
+
+ # - name: use shell module
+ #   shell: show version
+
+  - name: use eos_command module
+    arista.eos.eos_command:
+      commands: show version 
+    register: command_output
+    
+  #- name: print gathered facts
+  #  ansible.builtin.debug:
+  #    msg: "{{ command_output }}"
+
+
+
