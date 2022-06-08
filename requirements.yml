@@ -2,4 +2,5 @@
 collections:
   - name: arista.eos
   - name: google.cloud
+  - name: f5networks.f5_modules
 
